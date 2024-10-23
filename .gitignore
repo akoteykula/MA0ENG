@@ -1,0 +1,24 @@
+# Android-specific
+*.iml
+.gradle
+/.idea/
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+/.idea/modules.xml
+/build
+/captures
+.externalNativeBuild
+.cxx
+*.log
+*.apk
+*.keystore
+
+# Kotlin/Java
+*.class
+*.jar
+*.war
+*.ear
+
+# macOS specific (если работаешь на Mac)
+.DS_Store
