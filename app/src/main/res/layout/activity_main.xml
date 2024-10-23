@@ -155,8 +155,6 @@
             />
     </LinearLayout>
 
-
-
     <!-- 9. Footer (Registration Link) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/footer_layout"
