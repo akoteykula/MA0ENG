@@ -120,16 +120,42 @@
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- 8. Next Button -->
-    <Button android:id="@+id/next_button" android:layout_width="300dp" android:layout_height="50dp" android:background="@drawable/next_button_background"
-        android:text="Next"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
-        android:fontFamily="@font/montserrat_regular"
-        android:drawableEnd="@drawable/arrow"
-        android:drawableTint="@android:color/white"
-        android:drawablePadding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/additional_options" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="90dp" />
+    <!-- 8. Button Next -->
+    <LinearLayout
+        android:id="@+id/next_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@drawable/next_button_background"
+        android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/additional_options"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="90dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/next_button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/next_button_arrow"
+            android:layout_width="15dp"
+            android:layout_height="22dp"
+            android:src="@drawable/arrow"
+            />
+    </LinearLayout>
+
+
 
     <!-- 9. Footer (Registration Link) -->
     <androidx.constraintlayout.widget.ConstraintLayout
