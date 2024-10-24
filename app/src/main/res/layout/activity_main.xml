@@ -56,10 +56,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/full_name_input_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/CommonTextInputLayout"
         android:hint="@string/full_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         app:endIconDrawable="@drawable/ic_person"
         app:layout_constraintTop_toTopOf="parent"
@@ -69,18 +67,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/full_name_input"
             style="@style/CommonEditText"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_input_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/CommonTextInputLayout"
         android:hint="@string/valid_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:endIconDrawable="@drawable/ic_mail"
         app:layout_constraintTop_toBottomOf="@id/full_name_input_layout"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,18 +82,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_input"
             style="@style/CommonEditText"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/phone_number_input_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/CommonTextInputLayout"
         android:hint="@string/phone_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:endIconDrawable="@drawable/ic_phone"
         app:layout_constraintTop_toBottomOf="@id/email_input_layout"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,18 +97,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone_number_input"
             style="@style/CommonEditText"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
             android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_input_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/CommonTextInputLayout"
         android:hint="@string/strong_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:endIconDrawable="@drawable/ic_lock"
         app:layout_constraintTop_toBottomOf="@id/phone_number_input_layout"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,8 +112,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_input"
             style="@style/CommonEditText"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
