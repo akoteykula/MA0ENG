@@ -1,4 +1,3 @@
 <resources>
     <!-- Define a margin value for input fields -->
-    <dimen name="input_field_margin_top">13dp</dimen>
 </resources>

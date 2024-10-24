@@ -182,7 +182,7 @@
             app:layout_constraintEnd_toStartOf="@+id/login_text"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontalBias="0.5" />
+            app:layout_constraintHorizontal_bias="0.5" />
 
         <!-- Text for "Log In" -->
         <TextView
@@ -200,7 +200,7 @@
             app:layout_constraintStart_toEndOf="@id/already_member_text"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontalBias="0.5" />
+            app:layout_constraintHorizontal_bias="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
