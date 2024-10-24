@@ -15,7 +15,7 @@
         android:layout_width="321dp"
         android:layout_height="251dp"
         android:layout_marginStart="52dp"
-        android:contentDescription="Illustration"
+        android:contentDescription="@string/illustration"
         android:src="@drawable/illustration"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +27,7 @@
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Started"
+        android:text="@string/get_started"
         android:textSize="45sp"
         android:textStyle="bold"
         android:fontWeight="700"
@@ -44,7 +44,7 @@
         android:id="@+id/secondary_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="by creating a free account."
+        android:text="@string/by_creating_a_free_account"
         android:textSize="16sp"
         android:textFontWeight="1000"
         android:textColor="@color/black"
@@ -57,7 +57,7 @@
     <EditText
         android:id="@+id/full_name_input"
         style="@style/CommonEditText"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:inputType="textPersonName"
         android:drawableEnd="@drawable/ic_person"
         app:layout_constraintTop_toTopOf="parent"
@@ -68,7 +68,7 @@
     <EditText
         android:id="@+id/email_input"
         style="@style/CommonEditText"
-        android:hint="Valid email"
+        android:hint="@string/valid_email"
         android:inputType="textEmailAddress"
         android:drawableEnd="@drawable/ic_mail"
         app:layout_constraintTop_toBottomOf="@id/full_name_input"
@@ -79,7 +79,7 @@
     <EditText
         android:id="@+id/phone_number_input"
         style="@style/CommonEditText"
-        android:hint="Phone number"
+        android:hint="@string/phone_number"
         android:inputType="phone"
         android:drawableEnd="@drawable/ic_phone"
         app:layout_constraintTop_toBottomOf="@id/email_input"
@@ -90,7 +90,7 @@
     <EditText
         android:id="@+id/password_input"
         style="@style/CommonEditText"
-        android:hint="Strong Password"
+        android:hint="@string/strong_password"
         android:inputType="textPassword"
         android:drawableEnd="@drawable/ic_lock"
         app:layout_constraintTop_toBottomOf="@id/phone_number_input"
@@ -112,13 +112,14 @@
             android:id="@+id/terms_conditions_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="By checking the box you agree to our Terms and Conditions."
-            android:textSize="10sp"
+            android:text="@string/by_checking_the_box_you_agree_to_our_terms_and_conditions"
+            android:textSize="11sp"
             android:textFontWeight="1000"
             android:fontFamily="@font/montserrat_regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- 10. Button Next -->
@@ -142,7 +143,7 @@
             android:id="@+id/next_button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="@string/next"
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:textFontWeight="1000"
@@ -153,6 +154,7 @@
             android:id="@+id/next_button_arrow"
             android:layout_width="15dp"
             android:layout_height="22dp"
+            android:contentDescription="@string/todo"
             android:src="@drawable/arrow" />
     </LinearLayout>
 
@@ -171,7 +173,7 @@
             android:id="@+id/already_member_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already a member?"
+            android:text="@string/already_a_member"
             android:textSize="14sp"
             android:textColor="@color/black"
             android:textFontWeight="1000"
@@ -187,7 +189,7 @@
             android:id="@+id/login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log In"
+            android:text="@string/log_in"
             android:textSize="14sp"
             android:textColor="#800080"
             android:textFontWeight="1000"
