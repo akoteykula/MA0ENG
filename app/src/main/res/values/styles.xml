@@ -1,0 +1,13 @@
+<!-- res/values/styles.xml -->
+<resources>
+    <style name="CommonEditText">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textFontWeight">1000</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:drawableTint">@color/black</item>
+    </style>
+</resources>

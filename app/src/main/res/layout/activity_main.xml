@@ -54,73 +54,45 @@
         app:layout_constraintEnd_toEndOf="@id/welcome_text"
         android:layout_marginTop="8dp" />
 
-    <!-- 5. Full Name Input Field -->
     <EditText
         android:id="@+id/full_name_input"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        style="@style/CommonEditText"
         android:hint="Full Name"
-        android:background="@drawable/edit_text_background"
-        android:padding="12dp"
-        android:fontFamily="@font/montserrat_regular"
         android:inputType="textPersonName"
         android:drawableEnd="@drawable/ic_person"
-        android:drawablePadding="8dp"
-        android:drawableTint="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="250dp" />
 
-    <!-- 6. Email Input Field -->
     <EditText
         android:id="@+id/email_input"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        style="@style/CommonEditText"
         android:hint="Valid email"
-        android:background="@drawable/edit_text_background"
-        android:padding="12dp"
-        android:fontFamily="@font/montserrat_regular"
         android:inputType="textEmailAddress"
         android:drawableEnd="@drawable/ic_mail"
-        android:drawablePadding="8dp"
-        android:drawableTint="@color/black"
         app:layout_constraintTop_toBottomOf="@id/full_name_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- 7. Phone Number Input Field -->
     <EditText
         android:id="@+id/phone_number_input"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        style="@style/CommonEditText"
         android:hint="Phone number"
-        android:background="@drawable/edit_text_background"
-        android:padding="12dp"
-        android:fontFamily="@font/montserrat_regular"
         android:inputType="phone"
         android:drawableEnd="@drawable/ic_phone"
-        android:drawablePadding="8dp"
-        android:drawableTint="@color/black"
         app:layout_constraintTop_toBottomOf="@id/email_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- 8. Password Input Field -->
     <EditText
         android:id="@+id/password_input"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        style="@style/CommonEditText"
         android:hint="Strong Password"
-        android:background="@drawable/edit_text_background"
-        android:padding="12dp"
-        android:fontFamily="@font/montserrat_regular"
         android:inputType="textPassword"
         android:drawableEnd="@drawable/ic_lock"
-        android:drawablePadding="8dp"
-        android:drawableTint="@color/black"
         app:layout_constraintTop_toBottomOf="@id/phone_number_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
