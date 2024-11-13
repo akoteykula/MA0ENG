@@ -1,3 +1,7 @@
 <resources>
-    <!-- Define a margin value for input fields -->
+    <dimen name="checkbox_size">1dp</dimen>
+    <dimen name="checkbox_text_size">9sp</dimen>
+
+    <dimen name="next_button_margin_top">70dp</dimen>
+    <dimen name="footer_margin_top">30dp</dimen>
 </resources>
