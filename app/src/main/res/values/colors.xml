@@ -1,7 +1,4 @@
 <resources>
-    <color name="purple_500">#6C63FF</color>
-    <color name="gray_secondary">#0000000</color>
-    <color name="blue_link">#1E88E5</color>
     <color name="light_gray_transparent">#33C4C4C4</color>
     <color name="black">#000000</color>
 </resources>
