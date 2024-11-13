@@ -14,159 +14,167 @@
         android:id="@+id/illustration"
         android:layout_width="321dp"
         android:layout_height="251dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="@string/illustration"
         android:src="@drawable/illustration"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- 3. Welcome Text -->
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/get_started"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        android:fontWeight="700"
         android:fontFamily="@font/montserrat_regular"
+        android:fontWeight="700"
+        android:text="@string/get_started"
         android:textColor="@color/black"
         android:textFontWeight="1000"
-        app:layout_constraintTop_toTopOf="@id/illustration"
+        android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/illustration"
+        app:layout_constraintEnd_toEndOf="@id/illustration"
         app:layout_constraintStart_toStartOf="@id/illustration"
-        app:layout_constraintEnd_toEndOf="@id/illustration" />
+        app:layout_constraintTop_toTopOf="@id/illustration" />
 
     <!-- 4. Secondary Text -->
     <TextView
         android:id="@+id/secondary_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/by_creating_a_free_account"
-        android:textSize="16sp"
-        android:textFontWeight="1000"
-        android:textColor="@color/black"
         android:fontFamily="@font/montserrat_regular"
-        app:layout_constraintTop_toBottomOf="@id/welcome_text"
-        app:layout_constraintStart_toStartOf="@id/welcome_text"
+        android:text="@string/by_creating_a_free_account"
+        android:textColor="@color/black"
+        android:textFontWeight="1000"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@id/welcome_text"
-        android:layout_marginTop="8dp" />
+        app:layout_constraintStart_toStartOf="@id/welcome_text"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text" />
 
+    <!-- 5. Full Name Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/full_name_input_layout"
         style="@style/CommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="@string/full_name"
         android:layout_marginTop="250dp"
         app:endIconDrawable="@drawable/ic_person"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/full_name_input"
             style="@style/CommonEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- 6. Email Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_input_layout"
         style="@style/CommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="@string/valid_email"
         app:endIconDrawable="@drawable/ic_mail"
-        app:layout_constraintTop_toBottomOf="@id/full_name_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/full_name_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_input"
             style="@style/CommonEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- 7. Phone Number Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/phone_number_input_layout"
         style="@style/CommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="@string/phone_number"
         app:endIconDrawable="@drawable/ic_phone"
-        app:layout_constraintTop_toBottomOf="@id/email_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/email_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone_number_input"
             style="@style/CommonEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- 8. Password Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_input_layout"
         style="@style/CommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="@string/strong_password"
         app:endIconDrawable="@drawable/ic_lock"
-        app:layout_constraintTop_toBottomOf="@id/phone_number_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/phone_number_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_input"
             style="@style/CommonEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <!-- 9. Terms and Conditions Checkbox -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/additional_options"
-        android:layout_width="300dp"
+    <CheckBox
+        android:id="@+id/terms_conditions_checkbox"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/password_input_layout"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/by_checking_the_box_you_agree_to_our_terms_and_conditions"
+        android:textFontWeight="1000"
+        android:textSize="11sp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="5dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_input_layout" />
 
-        <CheckBox
-            android:id="@+id/terms_conditions_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/by_checking_the_box_you_agree_to_our_terms_and_conditions"
-            android:textSize="11sp"
-            android:textFontWeight="1000"
-            android:fontFamily="@font/montserrat_regular"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- 10. Button Next -->
+    <!-- 10. Next Button -->
     <LinearLayout
         android:id="@+id/next_button"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:background="@drawable/next_button_background"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
+        android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        app:layout_constraintTop_toBottomOf="@id/additional_options"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp"
-        android:clickable="true"
-        android:focusable="true">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/terms_conditions_checkbox">
 
         <TextView
             android:id="@+id/next_button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_marginEnd="8dp"
             android:text="@string/next"
-            android:textSize="20sp"
             android:textColor="@android:color/white"
             android:textFontWeight="1000"
-            android:fontFamily="@font/montserrat_regular"
-            android:layout_marginEnd="8dp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/next_button_arrow"
@@ -177,48 +185,39 @@
     </LinearLayout>
 
     <!-- 11. Footer (Login Link) -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/footer_layout"
+    <!-- Text for "Already a member?" -->
+    <TextView
+        android:id="@+id/already_member_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/next_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/already_a_member"
+        android:textColor="@color/black"
+        android:textFontWeight="1000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/login_text"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/next_button" />
+
+    <!-- Text for "Log In" -->
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/log_in"
+        android:textColor="#800080"
+        android:textFontWeight="1000"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBaseline_toBaselineOf="@id/already_member_text"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
-
-        <!-- Text for "Already a member?" -->
-        <TextView
-            android:id="@+id/already_member_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/already_a_member"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:textFontWeight="1000"
-            android:fontFamily="@font/montserrat_regular"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/login_text"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" />
-
-        <!-- Text for "Log In" -->
-        <TextView
-            android:id="@+id/login_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/log_in"
-            android:textSize="14sp"
-            android:textColor="#800080"
-            android:textFontWeight="1000"
-            android:fontFamily="@font/montserrat_regular"
-            android:layout_marginStart="8dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:layout_constraintStart_toEndOf="@id/already_member_text"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintStart_toEndOf="@id/already_member_text"
+        app:layout_constraintTop_toBottomOf="@id/next_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
