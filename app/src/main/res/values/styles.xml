@@ -1,4 +1,3 @@
-<!-- res/values/styles.xml -->
 <resources>
     <!-- Common TextView Style -->
     <style name="CommonTextView">
@@ -6,18 +5,23 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textFontWeight">1000</item>
+        <item name="android:textFontWeight">700</item>
     </style>
 
     <!-- Welcome Text Style -->
     <style name="WelcomeTextStyle" parent="CommonTextView">
-        <item name="android:textSize">45sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Secondary Text Style -->
     <style name="SecondaryTextStyle" parent="CommonTextView">
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Link Text Style -->
+    <style name="LinkTextStyle" parent="CommonTextView">
+        <item name="android:textSize">10sp</item>
     </style>
 
     <!-- Footer Text Style -->
@@ -34,19 +38,19 @@
 
     <!-- Common EditText Style -->
     <style name="CommonEditText">
-        <item name="android:layout_width">300dp</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/edit_text_background</item>
         <item name="android:padding">12dp</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
-        <item name="android:textFontWeight">1000</item>
+        <item name="android:textFontWeight">700</item>
         <item name="android:drawablePadding">8dp</item>
         <item name="android:drawableTint">@color/black</item>
     </style>
 
     <!-- Common TextInputLayout Style -->
     <style name="CommonTextInputLayout">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">16dp</item>
     </style>
@@ -55,9 +59,14 @@
     <style name="CommonCheckBox">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/checkbox_text_size</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
-        <item name="android:textFontWeight">1000</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!-- Additional Options CheckBox Style -->
+    <style name="AdditionalOptionsCheckBox" parent="CommonCheckBox">
+        <!-- Customize if needed -->
     </style>
 
     <!-- Next Button Style -->
@@ -67,6 +76,6 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textFontWeight">1000</item>
+        <item name="android:textFontWeight">700</item>
     </style>
 </resources>
