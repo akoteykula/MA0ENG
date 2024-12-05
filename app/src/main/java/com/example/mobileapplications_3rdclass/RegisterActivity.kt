@@ -63,7 +63,7 @@ class RegisterActivity : AppCompatActivity() {
 
             val isFullNameValid = fullName.isNotEmpty()
             val isEmailValid = credentialsManager.isEmailValid(email)
-            val isPhoneNumberValid = phoneNumber.isNotEmpty() // You can enhance this validation
+            val isPhoneNumberValid = phoneNumber.isNotEmpty() // TODO: enhance this validation
             val isPasswordValid = credentialsManager.isPasswordValid(password)
 
             if (isFullNameValid && isEmailValid && isPhoneNumberValid && isPasswordValid && isTermsChecked) {
