@@ -10,17 +10,33 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textview.MaterialTextView
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var loginText: MaterialTextView
-    private lateinit var fullNameInput: TextInputEditText
-    private lateinit var emailInput: TextInputEditText
-    private lateinit var phoneNumberInput: TextInputEditText
-    private lateinit var passwordInput: TextInputEditText
-    private lateinit var termsConditionsCheckbox: MaterialCheckBox
-    private lateinit var nextButton: MaterialButton
+    private val loginText: MaterialTextView
+        get() = findViewById(R.id.login_text)
+    private val fullNameInput: TextInputEditText
+        get() = findViewById(R.id.full_name_input)
+    private val fullNameInputLayout: TextInputLayout
+        get() = findViewById(R.id.full_name_input_layout)
+    private val emailInput: TextInputEditText
+        get() = findViewById(R.id.email_input)
+    private val emailInputLayout: TextInputLayout
+        get() = findViewById(R.id.email_input_layout)
+    private val phoneNumberInput: TextInputEditText
+        get() = findViewById(R.id.phone_number_input)
+    private val phoneNumberInputLayout: TextInputLayout
+        get() = findViewById(R.id.phone_number_input_layout)
+    private val passwordInput: TextInputEditText
+        get() = findViewById(R.id.password_input)
+    private val passwordInputLayout: TextInputLayout
+        get() = findViewById(R.id.password_input_layout)
+    private val termsConditionsCheckbox: MaterialCheckBox
+        get() = findViewById(R.id.terms_conditions_checkbox)
+    private val nextButton: MaterialButton
+        get() = findViewById(R.id.next_button)
 
     private val credentialsManager = CredentialsManager()
 
@@ -36,15 +52,6 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
 
-        // Initialize Views
-        loginText = findViewById(R.id.login_text)
-        fullNameInput = findViewById(R.id.full_name_input)
-        emailInput = findViewById(R.id.email_input)
-        phoneNumberInput = findViewById(R.id.phone_number_input)
-        passwordInput = findViewById(R.id.password_input)
-        termsConditionsCheckbox = findViewById(R.id.terms_conditions_checkbox)
-        nextButton = findViewById(R.id.next_button)
-
         // Set OnClickListener for "Log In"
         loginText.setOnClickListener {
             // Start LoginActivity
@@ -55,36 +62,42 @@ class RegisterActivity : AppCompatActivity() {
 
         // Set OnClickListener for "Next" button
         nextButton.setOnClickListener {
-            val fullName = fullNameInput.text.toString()
-            val email = emailInput.text.toString()
-            val phoneNumber = phoneNumberInput.text.toString()
-            val password = passwordInput.text.toString()
+            val fullName = fullNameInput.text?.toString() ?: ""
+            val email = emailInput.text?.toString() ?: ""
+            val phoneNumber = phoneNumberInput.text?.toString() ?: ""
+            val password = passwordInput.text?.toString() ?: ""
             val isTermsChecked = termsConditionsCheckbox.isChecked
+
+            // Reset any previous errors
+            fullNameInputLayout.error = null
+            emailInputLayout.error = null
+            phoneNumberInputLayout.error = null
+            passwordInputLayout.error = null
 
             val isFullNameValid = fullName.isNotEmpty()
             val isEmailValid = credentialsManager.isEmailValid(email)
-            val isPhoneNumberValid = phoneNumber.isNotEmpty() // TODO: enhance this validation
+            val isPhoneNumberValid = phoneNumber.isNotEmpty() // TODO: Enhance this validation
             val isPasswordValid = credentialsManager.isPasswordValid(password)
+
+            if (!isFullNameValid) {
+                fullNameInputLayout.error = "Full Name cannot be empty"
+            }
+            if (!isEmailValid) {
+                emailInputLayout.error = "Please enter a valid email address"
+            }
+            if (!isPhoneNumberValid) {
+                phoneNumberInputLayout.error = "Phone Number cannot be empty"
+            }
+            if (!isPasswordValid) {
+                passwordInputLayout.error = "Password cannot be empty"
+            }
+            if (!isTermsChecked) {
+                Toast.makeText(this, "Please agree to the terms and conditions", Toast.LENGTH_SHORT).show()
+            }
 
             if (isFullNameValid && isEmailValid && isPhoneNumberValid && isPasswordValid && isTermsChecked) {
                 Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
-            } else {
-                // Show error messages
-                if (!isFullNameValid) {
-                    fullNameInput.error = "Full Name cannot be empty"
-                }
-                if (!isEmailValid) {
-                    emailInput.error = "Please enter a valid email address"
-                }
-                if (!isPhoneNumberValid) {
-                    phoneNumberInput.error = "Phone Number cannot be empty"
-                }
-                if (!isPasswordValid) {
-                    passwordInput.error = "Password cannot be empty"
-                }
-                if (!isTermsChecked) {
-                    Toast.makeText(this, "Please agree to the terms and conditions", Toast.LENGTH_SHORT).show()
-                }
+                // Proceed to next step or activity (in theory :b)
             }
         }
     }
