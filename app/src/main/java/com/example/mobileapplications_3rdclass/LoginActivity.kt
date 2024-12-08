@@ -68,12 +68,12 @@ class LoginActivity : AppCompatActivity() {
             if (!isPasswordValid) {
                 passwordInputLayout.error = "Password cannot be empty"
             }
+            
 
             if (isEmailValid && isPasswordValid) {
                 // Check if credentials match hardcoded ones
                 if (email == "test@te.st" && password == "1234") {
-                    // Proceed to some MainActivity (we don't have it :p)
-                    val intent = Intent(this, LoginActivity::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {

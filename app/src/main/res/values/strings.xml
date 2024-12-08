@@ -20,5 +20,8 @@
     <string name="next">Next</string>
     <string name="new_member">New Member?</string>
     <string name="register_now">Register now</string>
+    <string name="button_change_fragment">Change fragment</string>
+    <string name="fragment_a_text">Fragment A</string>
+    <string name="fragment_b_text">Fragment B</string>
 
 </resources>
