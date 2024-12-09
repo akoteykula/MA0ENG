@@ -9,14 +9,24 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textview.MaterialTextView
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var registerNowText: MaterialTextView
-    private lateinit var emailInput: TextInputEditText
-    private lateinit var passwordInput: TextInputEditText
-    private lateinit var nextButton: MaterialButton
+    // Properties with custom getters for each view
+    private val registerNowText: MaterialTextView
+        get() = findViewById(R.id.register_now_text)
+    private val emailInput: TextInputEditText
+        get() = findViewById(R.id.email_input)
+    private val emailInputLayout: TextInputLayout
+        get() = findViewById(R.id.email_input_layout)
+    private val passwordInput: TextInputEditText
+        get() = findViewById(R.id.password_input)
+    private val passwordInputLayout: TextInputLayout
+        get() = findViewById(R.id.password_input_layout)
+    private val nextButton: MaterialButton
+        get() = findViewById(R.id.next_button)
 
     private val credentialsManager = CredentialsManager()
 
@@ -32,12 +42,6 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        // Initialize Views
-        registerNowText = findViewById(R.id.register_now_text)
-        emailInput = findViewById(R.id.email_input)
-        passwordInput = findViewById(R.id.password_input)
-        nextButton = findViewById(R.id.next_button)
-
         // Set OnClickListener for "Register now"
         registerNowText.setOnClickListener {
             // Start RegisterActivity
@@ -48,22 +52,33 @@ class LoginActivity : AppCompatActivity() {
 
         // Set OnClickListener for "Next" button
         nextButton.setOnClickListener {
-            val email = emailInput.text.toString()
-            val password = passwordInput.text.toString()
+            val email = emailInput.text?.toString() ?: ""
+            val password = passwordInput.text?.toString() ?: ""
+
+            // Reset any previous errors
+            emailInputLayout.error = null
+            passwordInputLayout.error = null
 
             val isEmailValid = credentialsManager.isEmailValid(email)
             val isPasswordValid = credentialsManager.isPasswordValid(password)
 
+            if (!isEmailValid) {
+                emailInputLayout.error = "Please enter a valid email address"
+            }
+            if (!isPasswordValid) {
+                passwordInputLayout.error = "Password cannot be empty"
+            }
+            
+
             if (isEmailValid && isPasswordValid) {
-                // Proceed with login
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-            } else {
-                // Show error messages
-                if (!isEmailValid) {
-                    emailInput.error = "Please enter a valid email address"
-                }
-                if (!isPasswordValid) {
-                    passwordInput.error = "Password cannot be empty"
+                // Check if credentials match hardcoded ones
+                if (email == "test@te.st" && password == "1234") {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    // Show error message :(
+                    Toast.makeText(this, "Incorrect email or password", Toast.LENGTH_SHORT).show()
                 }
             }
         }
