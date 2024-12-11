@@ -18,6 +18,8 @@ class CredentialsManagerTest {
     fun setUp() {
         context = ApplicationProvider.getApplicationContext<Context>()
         credentialsManager = CredentialsManager(context)
+        val sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE)
+        sharedPreferences.edit().clear().commit()
     }
 
     @Test
@@ -73,5 +75,17 @@ class CredentialsManagerTest {
     fun testIsLoginValid_CaseInsensitive_Success() {
         credentialsManager.register("test@example.com", "password123")
         assertTrue(credentialsManager.isLoginValid("TEST@EXAMPLE.COM", "password123"))
+    }
+
+    @Test
+    fun login_with_test_at_te_st_and_1234_succeeds() {
+        credentialsManager.register("test@te.st", "1234")
+        assertTrue("Login should succeed with test@te.st and 1234", credentialsManager.isLoginValid("test@te.st", "1234"))
+    }
+
+    @Test
+    fun login_with_test_at_te_st_and_incorrect_password_fails() {
+        credentialsManager.register("test@te.st", "1234")
+        assertFalse("Login should fail with test@te.st and incorrect password", credentialsManager.isLoginValid("test@te.st", "wrong"))
     }
 }

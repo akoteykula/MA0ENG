@@ -4,11 +4,25 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class CredentialsManager(private val context: Context) {
+class CredentialsManager {
 
-    private val sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE)
-    private val gson = Gson()
-    private val accounts: MutableMap<String, String> = loadAccounts()
+    private val accounts: MutableMap<String, String> = mutableMapOf()
+
+    constructor()
+
+    constructor(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val accountsJson = sharedPreferences.getString("accounts", null)
+        accounts.putAll(
+            if (accountsJson != null) {
+                val type = object : TypeToken<MutableMap<String, String>>() {}.type
+                gson.fromJson(accountsJson, type)
+            } else {
+                mutableMapOf()
+            }
+        )
+    }
 
     fun isEmailValid(email: String): Boolean {
         val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
@@ -32,7 +46,6 @@ class CredentialsManager(private val context: Context) {
             return false // Email already exists
         }
         accounts[lowerCaseEmail] = password
-        saveAccounts()
         return true // Registration successful
     }
 
@@ -46,20 +59,5 @@ class CredentialsManager(private val context: Context) {
     fun isLoginValid(email: String, password: String): Boolean {
         val lowerCaseEmail = email.lowercase()
         return accounts[lowerCaseEmail] == password
-    }
-
-    private fun loadAccounts(): MutableMap<String, String> {
-        val accountsJson = sharedPreferences.getString("accounts", null)
-        return if (accountsJson != null) {
-            val type = object : TypeToken<MutableMap<String, String>>() {}.type
-            gson.fromJson(accountsJson, type)
-        } else {
-            mutableMapOf()
-        }
-    }
-
-    private fun saveAccounts() {
-        val accountsJson = gson.toJson(accounts)
-        sharedPreferences.edit().putString("accounts", accountsJson).apply()
     }
 }

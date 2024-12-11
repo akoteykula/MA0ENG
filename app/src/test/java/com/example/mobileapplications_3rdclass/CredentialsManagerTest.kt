@@ -1,12 +1,17 @@
 package com.example.mobileapplications_3rdclass
 
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 
 class CredentialsManagerTest {
 
-    private val credentialsManager = CredentialsManager()
+    private lateinit var credentialsManager: CredentialsManager
 
+    @Before
+    fun setUp() {
+        credentialsManager = CredentialsManager()
+    }
     // Email Validation Tests
 
     @Test
@@ -44,5 +49,17 @@ class CredentialsManagerTest {
         val password = "ExamplePassword123"
         val result = credentialsManager.isPasswordValid(password)
         assertTrue("Non-empty password should be valid", result)
+    }
+
+    @Test
+    fun `login with test@te,st and 1234 succeeds`() {
+        credentialsManager.register("test@te.st", "1234")
+        assertTrue("Login should succeed with test@te.st and 1234", credentialsManager.isLoginValid("test@te.st", "1234"))
+    }
+
+    @Test
+    fun `login with test@te,st and incorrect password fails`() {
+        credentialsManager.register("test@te.st", "1234")
+        assertFalse("Login should fail with test@te.st and incorrect password", credentialsManager.isLoginValid("test@te.st", "wrong"))
     }
 }
