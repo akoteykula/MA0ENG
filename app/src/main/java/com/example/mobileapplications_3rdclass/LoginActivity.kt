@@ -28,12 +28,14 @@ class LoginActivity : AppCompatActivity() {
     private val nextButton: MaterialButton
         get() = findViewById(R.id.next_button)
 
-    private val credentialsManager = CredentialsManager()
+    private lateinit var credentialsManager: CredentialsManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_sign_in)
+
+        credentialsManager = CredentialsManager(applicationContext)
 
         // Handle Window Insets if necessary
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.sign_in_layout)) { v, insets ->
@@ -68,11 +70,11 @@ class LoginActivity : AppCompatActivity() {
             if (!isPasswordValid) {
                 passwordInputLayout.error = "Password cannot be empty"
             }
-            
+
 
             if (isEmailValid && isPasswordValid) {
                 // Check if credentials match hardcoded ones
-                if (email == "test@te.st" && password == "1234") {
+                if (credentialsManager.isLoginValid(email, password)) {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
