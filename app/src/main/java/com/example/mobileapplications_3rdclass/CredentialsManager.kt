@@ -7,10 +7,12 @@ import com.google.gson.reflect.TypeToken
 class CredentialsManager {
 
     private val accounts: MutableMap<String, String> = mutableMapOf()
+    private var appContext: Context? = null
 
     constructor()
 
     constructor(context: Context) {
+        this.appContext = context.applicationContext
         val sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE)
         val gson = Gson()
         val accountsJson = sharedPreferences.getString("accounts", null)
@@ -46,9 +48,17 @@ class CredentialsManager {
             return false // Email already exists
         }
         accounts[lowerCaseEmail] = password
+        saveAccountsToSharedPreferences()
         return true // Registration successful
     }
 
+    private fun saveAccountsToSharedPreferences() {
+        val context = appContext ?: return
+        val sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val accountsJson = gson.toJson(accounts)
+        sharedPreferences.edit().putString("accounts", accountsJson).apply()
+    }
     /**
      * Checks if an account with the given email and password exists.
      *
