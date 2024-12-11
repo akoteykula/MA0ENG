@@ -38,12 +38,14 @@ class RegisterActivity : AppCompatActivity() {
     private val nextButton: MaterialButton
         get() = findViewById(R.id.next_button)
 
-    private val credentialsManager = CredentialsManager()
+    private lateinit var credentialsManager: CredentialsManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        credentialsManager = CredentialsManager(applicationContext)
 
         // Handle Window Insets if necessary
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.create_account_layout)) { v, insets ->
@@ -96,8 +98,17 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             if (isFullNameValid && isEmailValid && isPhoneNumberValid && isPasswordValid && isTermsChecked) {
-                Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
-                // Proceed to next step or activity (in theory :b)
+                val registrationSuccessful = credentialsManager.register(email, password)
+
+                if (registrationSuccessful) {
+                    Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                    // Go back to LoginActivity
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    emailInputLayout.error = "Email already registered"
+                }
             }
         }
     }
