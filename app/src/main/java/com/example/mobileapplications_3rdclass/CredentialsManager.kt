@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class CredentialsManager {
+class CredentialsManager : java.io.Serializable {
 
     private val accounts: MutableMap<String, String> = mutableMapOf()
     private var appContext: Context? = null
