@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="full_name_input_layout" type="id" />
+    <item name="full_name_input" type="id" />
+    <item name="phone_number_input_layout" type="id" />
+    <item name="phone_number_input" type="id" />
+    <item name="terms_conditions_checkbox" type="id" />
+    <item name="already_member_text" type="id" />
+    <item name="login_text" type="id" />
+</resources>
