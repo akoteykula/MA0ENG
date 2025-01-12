@@ -2,4 +2,10 @@
     <color name="light_gray_transparent">#33C4C4C4</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="accentColor">#F64121</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#666666</color>
+    <color name="hintTextColor">#999999</color>
+    <color name="button_default_color">#CCCCCC</color>
+    <color name="button_selected_color">#F64121</color>
 </resources>

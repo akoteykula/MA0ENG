@@ -24,4 +24,10 @@
     <string name="fragment_a_text">Fragment A</string>
     <string name="fragment_b_text">Fragment B</string>
 
+    <string name="share">Share</string>
+    <string name="like">Like</string>
+    <string name="food_image">Food Image</string>
+    <string name="japanese_food_64">Uzbek Food (64)</string>
+    <string name="back_arrow">Back Arrow</string>
+    <string name="search_here">Search here…</string>
 </resources>
