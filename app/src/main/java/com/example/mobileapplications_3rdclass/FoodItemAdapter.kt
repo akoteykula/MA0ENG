@@ -12,7 +12,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.button.MaterialButton
 
-class FoodItemAdapter(private val foodList: List<FoodItem>) :
+class FoodItemAdapter(private var foodList: List<FoodItem>) :
     RecyclerView.Adapter<FoodItemAdapter.FoodItemViewHolder>() {
 
     class FoodItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -65,4 +65,9 @@ class FoodItemAdapter(private val foodList: List<FoodItem>) :
     }
 
     override fun getItemCount(): Int = foodList.size
+
+    fun updateFoodList(newFoodList: List<FoodItem>) {
+        foodList = newFoodList
+        notifyDataSetChanged()
+    }
 }
